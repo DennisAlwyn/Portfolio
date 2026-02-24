@@ -1,0 +1,248 @@
+:root{
+    --bgdark: rgb(13, 13, 47);
+    --bglight: rgb(31, 31, 111);
+    --bgcolor: rgb(13, 13, 47);
+    --headfootcolor: rgb(6, 1, 63);
+    --defaulttextcolor: antiquewhite;
+    --defaultbordercolor: rgb(4, 13, 123);
+    --linkcolordefault: aqua;
+    --linkcolorhover: rgb(0, 255, 187);
+    --linkcolorclick: rgb(0, 255, 34);
+    --projectdivbgcolor: rgb(54, 38, 71);
+    --projectdivbordercolor: rgb(62, 0, 91);
+    --griditemwidth: 33.1%;
+    --griditemheight: 35em;
+    --maxheight: 100%;
+    --maxwidth: 100%;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+header{
+    display: flex;
+    background-color: var(--headfootcolor);
+    height: 30%;
+    padding: 3em;
+    border: 1px solid var(--defaultbordercolor);
+    flex-direction: column;
+}
+
+body{
+    background-color: var(--bgcolor);
+    color: var(--defaulttextcolor);
+}
+
+main{
+    display: flexbox;
+    align-items: center;
+}
+
+footer{
+    display: flex;
+    background-color: var(--headfootcolor);
+    height: 5em;
+    padding: 2em;
+    border: 1px solid var(--defaultbordercolor);
+    flex-direction: var(--defaultflexdir);
+}
+
+/*
+.headerbtn{
+    color: aqua;
+    margin: 1em;
+    border: 3px solid var(--defaultbordercolor);
+    padding: 10px;
+    border-radius: 20%;
+}
+
+#headerbtndiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+*/
+
+.hyperlink{
+    color: var(--linkcolordefault);
+    margin: 1em;
+    text-decoration: none;
+}
+
+.hyperlink:hover{
+    color: var(--linkcolorhover);
+}
+
+.hyperlink:active{
+    color: var(--linkcolorclick);
+}
+
+.projectdiv{
+    display: flexbox;
+    background-color: var(--projectdivbgcolor);
+    border: 3px solid var(--projectdivbordercolor);
+    padding: 0.25em;
+    text-align: center;
+    min-height: var(--griditemheight);
+    overflow: auto;
+}
+
+.projecttitle{
+    font-size: 2em;
+}
+
+.projectdiv img{
+    display: flex;
+    height: 40%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.projectdesc{
+    font-size: 1em;
+    padding: 1em;
+    text-align: left;
+}
+
+.techstackdivs{
+    display: flex;
+    gap: 0.25em 0.15em;
+    padding: 1em;
+    margin-bottom: 0.5em;
+    overflow: auto;
+}
+
+.techdiv{
+    border: 2px solid;
+    border-radius: 15%;
+    padding: 0.25em;
+    max-width: fit-content;
+    background-color: rgb(37, 37, 37);
+}
+
+.javascripttechdiv{
+    border-color: yellowgreen;
+    color: yellow;    
+}
+
+.nextjstechdiv{
+    border-color: rgb(204, 204, 204);
+    color:  white;    
+}
+
+.tailwindtechdiv{
+    border-color: rgb(0, 78, 196);
+    color:  rgb(0, 76, 255);    
+}
+
+.javatechdiv{
+    border-color: rgb(255, 128, 0);
+    color:  rgb(223, 111, 0);    
+}
+
+.kotlintechdiv{
+    border-color: rgb(167, 3, 232);
+    color:  rgb(183, 0, 255);    
+}
+
+.gdscripttechdiv{
+    border-color: rgb(0, 144, 152);
+    color:  rgb(0, 120, 168);    
+}
+
+.csharptechdiv{
+    border-color: rgb(8, 152, 0);
+    color:  rgb(0, 168, 20);    
+}
+
+.pythontechdiv{
+    border-color: rgb(0, 213, 117);
+    color:  rgb(0, 203, 214); 
+}
+
+.repolink{
+    background-color: rgb(56, 88, 194);
+    border: 2px solid rgb(67, 106, 236);
+    border-radius: 10%;
+    color: var(--defaulttextcolor);
+    margin-bottom: 0.25em;
+}
+
+.repolink:hover{
+    background-color: rgba(56, 88, 194, 0.5);
+    border-color: rgba(67, 106, 236, 0.5);
+    color: var(--linkcolordefault);
+}
+
+.repolink:active{
+    background-color: rgb(109, 143, 255);
+    border-color: rgb(184, 201, 255);
+    color: var(--linkcolorclick);
+}
+
+#headerlinks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+#footerlinks{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+#headertitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -0.5em;
+}
+
+#headeraboutme{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1em;
+}
+
+#bodytitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+}
+
+#bodydiv{
+    display: grid;
+    grid-template-columns: var(--griditemwidth) var(--griditemwidth) var(--griditemwidth);
+    gap: 0.25em 0.35em;
+    padding: 0.25em;
+    margin-bottom: 1em;
+}
+
+/*For portrait or small screens*/
+@media screen and (orientation: portrait), (max-width: 600px) {
+    #bodydiv{
+        display: grid;
+        grid-template-columns: var(--maxwidth);
+        padding: 0.25em;
+        margin: 1em;
+    }
+
+    #headerlinks, #footerlinks {
+        flex-direction: column;
+    }
+
+    .projectdiv img{
+        display: flex;
+        height: 30%;
+        width: 100%;
+        object-fit: contain;
+    }
+}
