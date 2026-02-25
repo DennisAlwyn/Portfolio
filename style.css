@@ -32,6 +32,11 @@ header{
     padding: 3em;
     border: 1px solid var(--defaultbordercolor);
     flex-direction: column;
+
+    animation-duration: var(--startanimduration);
+    animation-name: xScaleFadeIn;
+    animation-delay: var(--startanimdelay);
+    animation-fill-mode: backwards;
 }
 
 body{
@@ -70,6 +75,12 @@ footer{
 
 .hyperlink:active{
     color: var(--linkcolorclick);
+}
+
+/* Class for stopping anims */
+.no-animation{
+    animation: none !important;
+    transition: none !important;
 }
 
 .projectdiv{
@@ -188,6 +199,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-size: 1.1em;
 }
 
@@ -195,6 +207,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-size: 0.9em;
 }
 
@@ -282,16 +295,6 @@ footer{
   }
 }
 
-/*For landscape or small screens*/
-@media screen and (orientation: portrait){
-    header{
-        animation-duration: var(--startanimduration);
-        animation-name: xScaleFadeIn;
-        animation-delay: var(--startanimdelay);
-        animation-fill-mode: backwards;
-    }
-}
-
 /*For portrait or small screens*/
 @media screen and (orientation: portrait), (max-width: 600px) {
     header{
@@ -300,7 +303,14 @@ footer{
         animation-delay: var(--startanimdelay);
         animation-fill-mode: backwards;
     }
-    
+
+    .projectdiv img{
+        display: flex;
+        height: 30%;
+        width: 100%;
+        object-fit: contain;
+    }
+
     #bodydiv{
         display: grid;
         grid-template-columns: var(--maxwidth);
@@ -310,12 +320,5 @@ footer{
 
     #headerlinks, #footerlinks {
         flex-direction: column;
-    }
-
-    .projectdiv img{
-        display: flex;
-        height: 30%;
-        width: 100%;
-        object-fit: contain;
     }
 }
