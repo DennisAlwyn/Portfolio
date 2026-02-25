@@ -32,11 +32,6 @@ header{
     padding: 3em;
     border: 1px solid var(--defaultbordercolor);
     flex-direction: column;
-
-    animation-duration: var(--startanimduration);
-    animation-name: xScaleFadeIn;
-    animation-delay: var(--startanimdelay);
-    animation-fill-mode: backwards;
 }
 
 body{
@@ -207,6 +202,7 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin-top: -0.5em;
 }
 
@@ -286,10 +282,23 @@ footer{
   }
 }
 
+/*For landscape or small screens*/
+@media screen and (orientation: portrait){
+    header{
+        animation-duration: var(--startanimduration);
+        animation-name: xScaleFadeIn;
+        animation-delay: var(--startanimdelay);
+        animation-fill-mode: backwards;
+    }
+}
+
 /*For portrait or small screens*/
 @media screen and (orientation: portrait), (max-width: 600px) {
     header{
+        animation-duration: var(--startanimduration);
         animation-name: fadeInDown;
+        animation-delay: var(--startanimdelay);
+        animation-fill-mode: backwards;
     }
     
     #bodydiv{

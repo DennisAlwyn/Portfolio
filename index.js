@@ -1,3 +1,6 @@
+//Check if user on mobile
+const isMobile = window.matchMedia("(any-pointer: coarse)").matches;
+
 function initEmailCopy(){
     //Get all emails
     let emails = document.getElementsByClassName("email");
@@ -16,7 +19,8 @@ function initEmailCopy(){
             
             navigator.clipboard.writeText(str);
 
-            window.alert("Copied to Clipboard");
+            if(!isMobile) //Only display on PC, phones have their own popup thingy
+                window.alert("Copied to Clipboard");
 
             elemsplit = null;
             str = null;
