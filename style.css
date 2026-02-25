@@ -14,6 +14,11 @@
     --griditemheight: 35em;
     --maxheight: 100%;
     --maxwidth: 100%;
+    --startanimdelay: 0.25s;
+    --startanimbigdelay: 0.50s;
+    --startanimbiggerdelay: 0.75s;
+    --startanimduration: 1.0s;
+    --startanimlongduration: 1.5s;
 }
 
 html{
@@ -27,6 +32,11 @@ header{
     padding: 3em;
     border: 1px solid var(--defaultbordercolor);
     flex-direction: column;
+
+    animation-duration: var(--startanimduration);
+    animation-name: xScaleFadeIn;
+    animation-delay: var(--startanimdelay);
+    animation-fill-mode: backwards;
 }
 
 body{
@@ -46,24 +56,12 @@ footer{
     padding: 2em;
     border: 1px solid var(--defaultbordercolor);
     flex-direction: var(--defaultflexdir);
-}
 
-/*
-.headerbtn{
-    color: aqua;
-    margin: 1em;
-    border: 3px solid var(--defaultbordercolor);
-    padding: 10px;
-    border-radius: 20%;
+    animation-duration: var(--startanimlongduration);
+    animation-name: fadeIn;
+    animation-delay: var(--startanimbiggerdelay);
+    animation-fill-mode: backwards;
 }
-
-#headerbtndiv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-    
-*/
 
 .hyperlink{
     color: var(--linkcolordefault);
@@ -87,6 +85,15 @@ footer{
     text-align: center;
     min-height: var(--griditemheight);
     overflow: auto;
+    transition: transform 0.3s ease;
+}
+
+.projectdiv:hover{
+    transform: scale(1.025);
+}
+
+.projectdiv:active{
+    transform: scale(1.025);
 }
 
 .projecttitle{
@@ -216,6 +223,11 @@ footer{
     justify-content: center;
     align-items: center;
     margin: 1em;
+
+    animation-duration: var(--startanimduration);
+    animation-name: fadeIn;
+    animation-delay: var(--startanimbigdelay);
+    animation-fill-mode: backwards;
 }
 
 #bodydiv{
@@ -224,10 +236,62 @@ footer{
     gap: 0.25em 0.35em;
     padding: 0.25em;
     margin-bottom: 1em;
+
+    animation-duration: var(--startanimduration);
+    animation-name: fadeInUp;
+    animation-delay: var(--startanimdelay);
+    animation-fill-mode: backwards;
+}
+
+/*Fancy Anims*/
+@keyframes xScaleFadeIn {
+  0% {
+    opacity: 0;
+    transform: scaleX(0%); /* Start shrunk to nothing in x axis */
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(100%); /* Expand to full scale while increasing opacity */
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30%); /* Start down from original position */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30%); /* Start up from original position */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*For portrait or small screens*/
 @media screen and (orientation: portrait), (max-width: 600px) {
+    header{
+        animation-name: fadeInDown;
+    }
+    
     #bodydiv{
         display: grid;
         grid-template-columns: var(--maxwidth);
