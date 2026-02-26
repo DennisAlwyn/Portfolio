@@ -13,7 +13,6 @@ function stopHeaderAnim(){
     let rootStyles =  window.getComputedStyle(document.documentElement);
     //Get Delay from CSS in ms
     let totalDelay = parseFloat(rootStyles.getPropertyValue('--startanimdelay') + rootStyles.getPropertyValue('--startanimduration')) * 10000;
-    console.log(totalDelay);
     
     //Add no anim after finishing animation
     setTimeout(() => {
@@ -30,16 +29,16 @@ function initEmailCopy(){
     let emails = document.getElementsByClassName("email");
 
     //Attach event listeners to them
-    for(let i = 0; i < emails.length; i++){
-        let elem = emails.item(i);
+    for(const elem of emails){
 
         elem.addEventListener("click", function(event){
+            // Remove the non-email parts
             let elemsplit = event.currentTarget.innerText.split(" ");
             let str = "";
-            elemsplit.forEach(e => {
+            for(const e of elemsplit){
                 if(e.includes("@"))
                     str = e;
-            });
+            }
             
             navigator.clipboard.writeText(str);
 
@@ -49,8 +48,6 @@ function initEmailCopy(){
             elemsplit = null;
             str = null;
         });
-
-        elem = null;
     }
 
     emails = null;
